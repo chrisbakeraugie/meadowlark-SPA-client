@@ -18,6 +18,7 @@ function App() {
         >
           Learn React
         </a>
+        <p><a href="www.google.com">A test</a></p>
       </header>
     </div>
   );
