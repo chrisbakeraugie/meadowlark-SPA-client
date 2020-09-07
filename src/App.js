@@ -1,26 +1,45 @@
 import React from 'react';
-import logo from './logo.svg';
+import logo from './img/Logo.png';
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from 'react-router-dom';
+
+function Home() {
+  return (
+    <div>
+      <h2>Welcome to Meadowlark Travel</h2>
+      <p>Check out our "<Link to="/about">About</Link>" page!</p>
+    </div>
+  );
+}
+
+function About() {
+  return (<i>Coming Soon!</i>);
+}
+
+function NotFound() {
+  return (<i>Not Found</i>);
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <p><a href="https://www.google.com">A test</a></p>
-      </header>
-    </div>
+    <Router>
+      <div className="container">
+        <header>
+          <h1>Meadowlark Travel</h1>
+          <img src={logo} alt="Meadowlark Travel Logo" />
+        </header>
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route path="/about" exact component={About} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
