@@ -7,6 +7,7 @@ import {
   Route,
   Link
 } from 'react-router-dom';
+import Vacations from './Vacations';
 
 function Home() {
   return (
@@ -36,6 +37,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/about" exact component={About} />
+          <Route path="/vacations" exact component={Vacations} />
           <Route component={NotFound} />
         </Switch>
       </div>
