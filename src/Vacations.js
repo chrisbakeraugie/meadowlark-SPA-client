@@ -2,7 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function Vacations() {
+  // prepare state
   const [vacations, setVacations] = useState([]);
+
+//combine this hook with fetch and "proxy" to fetch initial data
+useEffect(() => {
+  fetch('/api/vacations')
+  .then(res => res.json())
+  .then(setVacations);
+},[]);
+
   return (
     <div>
       <h2>Vacations</h2>
@@ -16,7 +25,7 @@ function Vacations() {
         ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default Vacations;
